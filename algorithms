@@ -1,0 +1,22 @@
+public class Algorithm {
+    public int sequentialSearch(int[] nums, int key) {
+       for(int i = 0; i<nums.length; i++){
+           if(nums[i] == key) {
+               return i;
+            }
+        }
+        return -1;
+    }
+    
+    public static int binarySearch(int[] nums, int start, int end, int key) {
+        
+        if((nums[start]+nums[end])/2 == key) {
+            return start+(end-start)/2;
+        } else if((nums[start]+nums[end])/2 > key){
+            return binarySearch(nums,start, (int)(start+(end-start)/2)-1, key);
+        } else if((nums[start]+nums[end])/2 < key){
+            return binarySearch(nums,(int)(start+(end-start)/2)+1,end, key);
+        }
+        return -1;
+    }
+}
